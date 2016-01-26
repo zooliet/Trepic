@@ -16,6 +16,12 @@
 
     <%#= render 'footer' %>
 
+    <% flash.each do |name, msg| %>
+      <%= render 'flash', name: name, msg: msg %>
+    <% end %>
+
+    <%#= render 'flash', name: 'notice', msg: 'Flash Message Test' %>
+    <%#= render 'flash', name: 'warning', msg: 'Flash Message Test' %>
 
   </div>
 </body>
