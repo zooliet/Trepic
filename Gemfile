@@ -50,3 +50,10 @@ group :development, :test do
   gem "mocha", require: false
   gem "hirb"
 end
+
+gem 'compass-rails', '~> 2.0.4'
+gem 'bootstrap-sass', '~> 3.3.3'
+gem 'jquery-ui-rails'
+source 'https://rails-assets.org' do
+  gem 'rails-assets-jasny-bootstrap'
+end
