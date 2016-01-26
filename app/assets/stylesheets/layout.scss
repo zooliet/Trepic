@@ -145,3 +145,7 @@ html, body {
   .disabled { color: #aaa; }
 }
 
+.jumbotron.welcome {
+  background-color: darken(#428bca, 6.5%);
+  margin: 0;
+}
