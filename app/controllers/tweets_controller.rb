@@ -1,6 +1,12 @@
 class TweetsController < ApplicationController
   def index
-    @tweets = Tweet.all
+    if params[:zombie_id].present?
+      @zombie = Zombie.find(params[:zombie_id])
+      # @tweets = Tweet.where(zombie_id: params[:zombie_id])
+      @tweets = @zombie.tweets
+    else
+      @tweets = Tweet.all
+    end
   end
 
   def show

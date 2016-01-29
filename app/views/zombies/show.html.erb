@@ -1,0 +1,13 @@
+<div class="container content">
+  <ul class="list-group">
+    <li class='list-group-item'>#<%= @zombie.id %></li>
+    <li class='list-group-item'><%= @zombie.name %></li>
+    <li class='list-group-item'><%= @zombie.graveyard %></li>
+    <li class='list-group-item'><%= @zombie.created_at.to_s(:long) %></li>
+    <li class='list-group-item'>
+      <%= link_to pluralize(@zombie.tweets.size, 'tweet'), zombie_tweets_path(zombie_id: @zombie.id) %>
+    </li>
+  </ul>
+
+  <%= link_to 'Back', tweets_path %>
+</div>

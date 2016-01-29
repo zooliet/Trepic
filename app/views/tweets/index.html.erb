@@ -1,5 +1,9 @@
-<div class='container'>
-  <h1>Listing tweets</h1>
+<div class='container content'>
+  <% if @zombie.present? %>
+    <h1><%= @zombie.name %>'s tweets</h1>
+  <% else %>
+    <h1>Tweets</h1>
+  <% end %>
 
   <% if @tweets.size.zero? %>
     <p class='lead text-muted'>No tweets are available.</p>
@@ -14,7 +18,7 @@
       <% @tweets.each do |tweet| %>
       <tr>
         <td><%= tweet.status %></td>
-        <td><%= tweet.zombie.name %></td>
+        <td><%= link_to tweet.zombie.name, tweet.zombie %></td>
         <td>
           <%= link_to 'Show', tweet, class: 'btn btn-success btn-xs' %>
           <%= link_to 'Remove', tweet, method: :delete, class: 'btn btn-danger btn-xs' %>
@@ -22,5 +26,9 @@
       </tr>
       <% end %>
     </table>
-    <% end %>
+  <% end %>
+
+  <% if @zombie.present? %>
+    <%= link_to 'All tweets', tweets_path %>
+  <% end %>
 </div>

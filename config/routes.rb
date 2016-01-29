@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   # get 'home/index'
 
   resources :tweets
+  resources :zombies do
+    resources :tweets, only: [:index]
+  end
 
   resources :dummies
   root 'home#index'

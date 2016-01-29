@@ -11,7 +11,7 @@ html, body {
   }
 
   #container {
-    margin-top: 48px;
+    // margin-top: 48px;
     // @media (min-width: 768px) { margin-top: 0px; }
     min-height: 640px;
     // padding-bottom: 60px;   /* Height of the footer element */
@@ -156,7 +156,7 @@ div.welcome.section {
 }
 
 div.image.section {
-  background-color: darken(#428bca, 6.5%);
+  background-color: $navbar-inverse-bg; //  darken(#428bca, 6.5%);
   // background: url("/assets/banner.jpg") no-repeat center;
   margin: 0;
 }
