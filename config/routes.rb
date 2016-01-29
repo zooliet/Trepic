@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+
   # get 'home/index'
+
+  resources :tweets
 
   resources :dummies
   root 'home#index'
