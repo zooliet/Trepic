@@ -1,22 +1,26 @@
 <div class='container'>
   <h1>Listing tweets</h1>
 
-  <table class='table'>
-    <tr>
-      <th>Status</th>
-      <th>Zombie</th>
-      <th></th>
-    </tr>
+  <% if @tweets.size.zero? %>
+    <p class='lead text-muted'>No tweets are available.</p>
+  <% else %>
+    <table class='table'>
+      <tr>
+        <th>Status</th>
+        <th>Zombie</th>
+        <th></th>
+      </tr>
 
-    <% @tweets.each do |tweet| %>
-    <tr>
-      <td><%= tweet.status %></td>
-      <td><%= tweet.zombie.name %></td>
-      <td>
-        <%= link_to 'Show', tweet, class: 'btn btn-success btn-sm' %>
-        <%= link_to 'Remove', tweet, method: :delete, class: 'btn btn-danger btn-sm' %>
-      </td>
-    </tr>
+      <% @tweets.each do |tweet| %>
+      <tr>
+        <td><%= tweet.status %></td>
+        <td><%= tweet.zombie.name %></td>
+        <td>
+          <%= link_to 'Show', tweet, class: 'btn btn-success btn-xs' %>
+          <%= link_to 'Remove', tweet, method: :delete, class: 'btn btn-danger btn-xs' %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
     <% end %>
-  </table>
 </div>
