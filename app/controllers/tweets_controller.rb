@@ -37,8 +37,14 @@ class TweetsController < ApplicationController
 
     # @tweet = Tweet.new(tweet_params)
 
-    @tweet.save
-    redirect_to tweets_path, notice: "Tweet was created"
+    # @tweet.save
+    # redirect_to tweets_path, notice: "Tweet was created"
+
+    if @tweet.save
+      redirect_to tweets_path, notice: "Tweet was created"
+    else
+      render :new
+    end
 
   end
 
