@@ -1,0 +1,20 @@
+<h1>New Tweet</h1>
+<div class="row">
+  <div class="col-sm-6">
+    <%= form_for tweet do |f| %>
+      <div class="form-group field">
+        <%= f.label :status %>
+        <%= f.text_field :status, class: 'form-control' %>
+      </div>
+
+      <div class="form-group field">
+        <%= f.label :zombie_id %>
+        <%= f.collection_select :zombie_id, Zombie.all, :id, :name %>
+      </div>
+
+      <div class="form-group">
+        <%= f.submit class: "btn btn-success" %>
+      </div>
+    <% end %>
+  </div>
+</div>
