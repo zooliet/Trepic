@@ -43,7 +43,8 @@ class TweetsController < ApplicationController
     if @tweet.save
       redirect_to tweets_path, notice: "Tweet was created"
     else
-      render :new
+      # render :new
+      redirect_to tweets_path, flash: {warning: @tweet.errors.full_messages.to_sentence}
     end
 
   end
