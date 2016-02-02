@@ -31,4 +31,9 @@
   <% if @zombie.present? %>
     <%= link_to 'All tweets', tweets_path %>
   <% end %>
+
+  <%#= link_to "New Tweet", new_tweet_path %>
+  <a href="<%= new_tweet_path %>" class='btn btn-primary'><i class='glyphicon glyphicon-plus'></i> New Tweet</a>
+
+
 </div>
