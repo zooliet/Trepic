@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160304135109) do
+ActiveRecord::Schema.define(version: 20160304154811) do
+
+  create_table "book_genres", force: :cascade do |t|
+    t.integer  "book_id"
+    t.integer  "genre_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "book_genres", ["book_id"], name: "index_book_genres_on_book_id"
+  add_index "book_genres", ["genre_id"], name: "index_book_genres_on_genre_id"
 
   create_table "books", force: :cascade do |t|
     t.string   "title"
@@ -30,6 +40,12 @@ ActiveRecord::Schema.define(version: 20160304135109) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tweets", force: :cascade do |t|
