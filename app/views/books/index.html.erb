@@ -31,38 +31,79 @@
   <% end %>
   <hr>
 
-  <% @books.each do |book| %>
-  <div class="row">
-    <div class="col-sm-8">
-      <ul class="list-unstyled book-list">
-        <li class="row rating-<%= book.rating %>">
-          <div class="col-sm-3">
-            <!-- <a href="#" target="_blank">
-              <%#= image_from_amazon(book.amazon_id) %>
-            </a> -->
-            <%= image_from_amazon(book.amazon_id) %>
-            <p class="text-center rating"><strong><%= book.rating %></strong>/5</p>
+  <div class="book-form">
+    <%= form_for(Book.new) do |f| %>
+      <legend>New Book</legend>
+
+      <div class="row">
+        <div class="col-sm-5">
+          <div class="form-group">
+            <%= f.text_field :title, class: 'form-control', placeholder: 'Title' %>
           </div>
 
-          <div class="col-sm-9">
-            <h3><a href="#"><%= book.title %></a></h3>
-            <p class="text-muted"><em>Written by <%= book.author %></em></p>
-
-            <div>
-              <p>
-                <%= book.description %>
-              </p>
-            </div>
+          <div class="form-group">
+            <%= f.text_field :author, class: 'form-control', placeholder: 'Author' %>
           </div>
-        </li>
-      </ul>
-    </div>
 
-    <div class="col-sm-4">
-    </div>
+          <div class='form-group'>
+            <%= f.text_field :description, class: 'form-control', placeholder: 'Description' %>
+          </div>
+
+          <div class='form-group'>
+            <%= f.text_field :amazon_id, class: 'form-control', placeholder: 'Amazon ID' %>
+          </div>
+
+          <div class='form-group'>
+            <legend>Rating</legend>
+            <% (1..5).each do |rating| %>
+              <label class='radio-inline'>
+                <%= f.radio_button :rating, rating %> <%= rating %>
+              </label>
+            <% end %>
+          </div>
+
+          <div class='form-group'>
+            <%= f.submit class: 'btn btn-primary' %>
+          </div>
+
+        </div>
+      </div>
+
+    <% end %>
+    <hr>
   </div>
+
+
+  <% @books.each do |book| %>
+    <div class="row">
+      <div class="col-sm-8">
+        <ul class="list-unstyled book-list">
+          <li class="row rating-<%= book.rating %>">
+            <div class="col-sm-3">
+              <!-- <a href="#" target="_blank">
+                <%#= image_from_amazon(book.amazon_id) %>
+              </a> -->
+              <%= image_from_amazon(book.amazon_id) %>
+              <p class="text-center rating"><strong><%= book.rating %></strong>/5</p>
+            </div>
+
+            <div class="col-sm-9">
+              <h3><a href="#"><%= book.title %></a></h3>
+              <p class="text-muted"><em>Written by <%= book.author %></em></p>
+
+              <div>
+                <p>
+                  <%= book.description %>
+                </p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-sm-4">
+      </div>
+    </div>
   <% end %>
-
-
 
 </div>
