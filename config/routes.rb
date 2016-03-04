@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   # get 'home/index'
 
-  resources :tweets
+  resources :tweets, :books
   resources :zombies do
     resources :tweets, only: [:index]
   end
